@@ -1,0 +1,61 @@
+.action-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+.action-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-pill {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eee;
+  text-transform: uppercase;
+}
+.status-executed { background: #c8e6c9; }
+.status-pending { background: #fff9c4; }
+.status-failed { background: #ffcdd2; }
+
+.action-reason {
+  color: #424242;
+  font-size: 0.85rem;
+  margin: 6px 0;
+}
+
+.action-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.72rem;
+  color: #757575;
+  margin-bottom: 8px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-approve, .btn-reject {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-approve { background: #2e7d32; color: #fff; }
+.btn-reject { background: #c62828; color: #fff; }
+.btn-approve:disabled, .btn-reject:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.action-error {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin-top: 6px;
+}

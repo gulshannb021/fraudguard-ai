@@ -1,0 +1,39 @@
+export const CaseStatus = {
+  OPEN: "OPEN",
+  IN_PROGRESS: "IN_PROGRESS",
+  WAITING_FOR_EVIDENCE: "WAITING_FOR_EVIDENCE",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  ACTION_TAKEN: "ACTION_TAKEN",
+  ESCALATED: "ESCALATED",
+  CLOSED: "CLOSED",
+};
+
+export const RiskLevel = {
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  HIGH: "HIGH",
+  CRITICAL: "CRITICAL",
+  UNKNOWN: "UNKNOWN",
+};
+
+export const ActionApprovalStatus = {
+  PROPOSED: "PROPOSED",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  APPROVED: "APPROVED",
+  REJECTED: "REJECTED",
+  EXECUTED: "EXECUTED",
+  FAILED: "FAILED",
+  CANCELLED: "CANCELLED",
+};
+
+export const EvidenceRelevance = {
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  HIGH: "HIGH",
+};
+
+export const FindingStatus = {
+  UNCONFIRMED: "UNCONFIRMED",
+  CONFIRMED: "CONFIRMED",
+  DISMISSED: "DISMISSED",
+};

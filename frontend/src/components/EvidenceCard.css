@@ -1,0 +1,66 @@
+.evidence-card {
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #9e9e9e;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+.evidence-card[data-relevance="HIGH"] {
+  border-left-color: #c62828;
+}
+.evidence-card[data-relevance="MEDIUM"] {
+  border-left-color: #f9a825;
+}
+.evidence-card[data-relevance="LOW"] {
+  border-left-color: #2e7d32;
+}
+
+.evidence-card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #757575;
+  margin-bottom: 4px;
+}
+
+.evidence-card h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.evidence-card p {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: #424242;
+}
+
+.evidence-entities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.entity-chip {
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+.evidence-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.72rem;
+  color: #757575;
+}
+
+.evidence-id {
+  margin-left: auto;
+  font-family: monospace;
+}
