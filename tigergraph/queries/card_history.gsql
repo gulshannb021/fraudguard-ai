@@ -1,0 +1,12 @@
+CREATE QUERY card_history(STRING card_id) FOR GRAPH FraudGuard {
+
+    C = SELECT c
+        FROM Card:c
+        WHERE c.id == card_id;
+
+    T = SELECT t
+        FROM C:c -(MADE>)- Transaction:t
+        ORDER BY t.ts ASC;
+
+    PRINT T;
+}

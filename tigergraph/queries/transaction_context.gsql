@@ -1,0 +1,17 @@
+CREATE QUERY transaction_context(STRING txn_id) FOR GRAPH CustomerTransactionGraph {
+
+    Tx = SELECT t
+         FROM Transaction:t
+         WHERE t.id == txn_id;
+
+    Cards = SELECT c
+            FROM Tx:t -(used_card>)- Card:c;
+
+    Customers = SELECT cu
+                FROM Customer:cu, Tx:t
+                WHERE cu.id == t.customer_id;
+
+    PRINT Tx;
+    PRINT Cards;
+    PRINT Customers;
+}

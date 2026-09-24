@@ -1,0 +1,20 @@
+
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Local environment/secrets
+.env
+*.env
+
+# Local database
+*.sqlite3
+
+# Backups
+backend_backup/
+
+# Generated archives
+*.zip

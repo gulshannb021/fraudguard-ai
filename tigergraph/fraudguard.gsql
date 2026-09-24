@@ -1,0 +1,104 @@
+CREATE VERTEX Customer (
+    PRIMARY_ID id STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX Card (
+    PRIMARY_ID id STRING,
+    customer_id STRING,
+    card1 STRING,
+    card4 STRING,
+    card6 STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX Transaction (
+    PRIMARY_ID id STRING,
+    customer_id STRING,
+    card_id STRING,
+    amount DOUBLE,
+    product STRING,
+    addr1 STRING,
+    addr2 STRING,
+    email STRING,
+    ts DATETIME,
+    channel STRING,
+    risk_score DOUBLE
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX DeviceProfile (
+    PRIMARY_ID id STRING,
+    device_info STRING,
+    os STRING,
+    browser STRING,
+    screen STRING,
+    new_status STRING,
+    proxy STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX EmailDomain (
+    PRIMARY_ID id STRING,
+    domain STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX BillingRegion (
+    PRIMARY_ID id STRING,
+    addr1 STRING,
+    addr2 STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX ClosedCase (
+    PRIMARY_ID id STRING,
+    customer_id STRING,
+    card_id STRING,
+    outcome STRING,
+    pattern STRING,
+    exposure DOUBLE,
+    report_filed STRING,
+    notes STRING
+) WITH primary_id_as_attribute="true";
+
+
+CREATE DIRECTED EDGE OWNS (
+    FROM Customer,
+    TO Card
+);
+
+CREATE DIRECTED EDGE MADE (
+    FROM Card,
+    TO Transaction
+);
+
+CREATE DIRECTED EDGE FROM_DEVICE (
+    FROM Transaction,
+    TO DeviceProfile
+);
+
+CREATE DIRECTED EDGE PURCHASER_EMAIL (
+    FROM Transaction,
+    TO EmailDomain
+);
+
+CREATE DIRECTED EDGE BILLED_IN (
+    FROM Transaction,
+    TO BillingRegion
+);
+
+CREATE DIRECTED EDGE ON_CARD (
+    FROM ClosedCase,
+    TO Card
+);
+
+CREATE GRAPH FraudGuard (
+    Customer,
+    Card,
+    Transaction,
+    DeviceProfile,
+    EmailDomain,
+    BillingRegion,
+    ClosedCase,
+    OWNS,
+    MADE,
+    FROM_DEVICE,
+    PURCHASER_EMAIL,
+    BILLED_IN,
+    ON_CARD
+);

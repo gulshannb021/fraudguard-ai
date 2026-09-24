@@ -1,0 +1,16 @@
+CREATE QUERY device_neighbors(STRING txn_id) FOR GRAPH FraudGuard {
+
+    T = SELECT t
+        FROM Transaction:t
+        WHERE t.id == txn_id;
+
+    D = SELECT d
+        FROM T:t -(FROM_DEVICE>)- DeviceProfile:d;
+
+    Related = SELECT t2
+              FROM D:d -(<FROM_DEVICE)- Transaction:t2
+              WHERE t2.id != txn_id;
+
+    PRINT D;
+    PRINT Related;
+}

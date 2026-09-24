@@ -1,0 +1,13 @@
+CREATE QUERY customer_cards(STRING customer_id) FOR GRAPH CustomerTransactionGraph {
+
+    CustomerSet = SELECT cu
+                  FROM Customer:cu
+                  WHERE cu.id == customer_id;
+
+    CardSet = SELECT c
+              FROM Card:c
+              WHERE c.customer_id == customer_id;
+
+    PRINT CustomerSet;
+    PRINT CardSet;
+}

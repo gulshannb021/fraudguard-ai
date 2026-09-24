@@ -1,0 +1,178 @@
+{
+  "case_id": "HHG-002",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.558,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Burst of online transactions consistent with the documented card-not-present fraud pattern.",
+    "affected_txn_ids": [
+      3478782
+    ],
+    "first_suspicious_txn_id": 3478782,
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 292.36,
+    "evidence": [
+      {
+        "claim": "Bank risk score is 0.79. The benchmark README states that risk_score is an investigation trigger and is not a verdict.",
+        "source": "transactions.csv + README.md",
+        "ref": "transaction:3478782:risk_score",
+        "entity_ids": [
+          "3478782"
+        ]
+      },
+      {
+        "claim": "1 prior confirmed-fraud case(s) involve the same customer/card.",
+        "source": "closed_cases_history.csv",
+        "ref": "history:C11891",
+        "entity_ids": [
+          "CC-4160"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      {
+        "case_id": "CC-5558",
+        "customer_id": "C02354",
+        "card_id": "C02354-K2",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 8.2,
+        "first_fraud_txn_id": 3417221
+      },
+      {
+        "case_id": "CC-5551",
+        "customer_id": "C03200",
+        "card_id": "C03200-K1",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 127.16,
+        "first_fraud_txn_id": 3416144
+      },
+      {
+        "case_id": "CC-5550",
+        "customer_id": "C00866",
+        "card_id": "C00866-K1",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 349.97,
+        "first_fraud_txn_id": 3416099
+      },
+      {
+        "case_id": "CC-5542",
+        "customer_id": "C10760",
+        "card_id": "C10760-K2",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 73.98,
+        "first_fraud_txn_id": 3414896
+      },
+      {
+        "case_id": "CC-5513",
+        "customer_id": "C06464",
+        "card_id": "C06464-K1",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 56.07,
+        "first_fraud_txn_id": 3414732
+      }
+    ],
+    "summary": "Investigation HHG-002 reviewed transaction 3478782 for customer C11891 and card C11891-K1. Detected pattern: card_not_present_fraud. Estimated fraud probability: 0.56. Exposure: $292.36. Verdict: uncertain.",
+    "written_to_graph": false,
+    "graph_case_id": null
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_verification",
+      "required": true,
+      "status": "not_sent",
+      "reason": "R1: additional verification may resolve a weak or uncertain signal."
+    }
+  ],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1: fraud probability is below 0.70; customer verification is required before stronger action."
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R1: evidence verification has been requested, so an investigation case must be created."
+      }
+    ],
+    "final": [
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "CREATE_CASE policy threshold: fraud probability is at least 0.30."
+      },
+      {
+        "action": "STEP_UP_AUTH",
+        "route": "auto",
+        "reason": "R1: fraud probability is below 0.70, so step-up authentication is preferred before blocking."
+      }
+    ],
+    "what_changed": [
+      "Added STEP_UP_AUTH via auto.",
+      "Removed VERIFY_WITH_CUSTOMER via auto."
+    ]
+  },
+  "sar": {
+    "file": false,
+    "reason": "",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "Investigation remains open because available evidence does not satisfy a terminal threshold.",
+  "tool_calls": [
+    {
+      "tool": "local_sqlite",
+      "operation": "load_case",
+      "case_id": "HHG-002"
+    },
+    {
+      "tool": "local_sqlite",
+      "operation": "transaction_lookup",
+      "transaction_id": 3478782
+    },
+    {
+      "tool": "local_sqlite",
+      "operation": "card_history",
+      "card_id": "C11891-K1"
+    },
+    {
+      "tool": "local_sqlite",
+      "operation": "customer_history",
+      "customer_id": "C11891"
+    },
+    {
+      "tool": "fraud_engine",
+      "operation": "score_case"
+    },
+    {
+      "tool": "policy_engine",
+      "operation": "decide_policy"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0
+  },
+  "latency_s": 0.0156,
+  "graph": {
+    "enabled": true,
+    "available": false,
+    "graph_name": "CustomerTransactionGraph",
+    "errors": [
+      "Transaction lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Transaction/3478782 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "Customer lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Customer/C11891 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "Card lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Card/C11891-K1 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))"
+    ]
+  }
+}

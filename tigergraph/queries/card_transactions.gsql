@@ -1,0 +1,12 @@
+CREATE QUERY card_transactions(STRING card_id) FOR GRAPH CustomerTransactionGraph {
+
+    CardSet = SELECT c
+              FROM Card:c
+              WHERE c.id == card_id;
+
+    Transactions = SELECT t
+                   FROM CardSet:c -(made_transaction>)- Transaction:t;
+
+    PRINT CardSet;
+    PRINT Transactions;
+}
