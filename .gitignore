@@ -18,3 +18,28 @@ backend_backup/
 
 # Generated archives
 *.zip
+
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Local environment/secrets
+.env
+*.env
+
+# Local database
+*.sqlite3
+
+# Backups
+backend_backup/
+
+# Generated archives
+*.zip
+
+# Large benchmark datasets - keep locally, do not commit
+data/*.csv
+tigergraph/load/*.csv
+tigergraph/load/*.json
