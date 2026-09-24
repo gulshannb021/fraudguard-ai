@@ -14488,29 +14488,41 @@
       {
         "action": "CREATE_CASE",
         "route": "auto",
-        "reason": "R6: shared-origin activity requires an investigation case."
+        "reason": "R6: shared-origin activity requires an investigation case.",
+        "approval_status": "APPROVED",
+        "execution_status": "APPROVED"
       },
       {
         "action": "MONITOR_CONNECTED_CARDS",
         "route": "auto",
-        "reason": "R6: monitor cards connected through the shared origin."
+        "reason": "R6: monitor cards connected through the shared origin.",
+        "approval_status": "REJECTED",
+        "execution_status": "REJECTED",
+        "rejection_reason": "Rejected by analyst"
       }
     ],
     "final": [
       {
         "action": "CREATE_CASE",
         "route": "auto",
-        "reason": "R6: shared-origin activity requires an investigation case."
+        "reason": "R6: shared-origin activity requires an investigation case.",
+        "approval_status": "APPROVED",
+        "execution_status": "APPROVED"
       },
       {
         "action": "FILE_REPORT",
         "route": "l2_fraud_manager",
-        "reason": "R6: shared device, region, or related origin requires reporting."
+        "reason": "R6: shared device, region, or related origin requires reporting.",
+        "approval_status": "REJECTED",
+        "execution_status": "REJECTED",
+        "rejection_reason": "Rejected by analyst"
       },
       {
         "action": "MONITOR_CONNECTED_CARDS",
         "route": "auto",
-        "reason": "R6: monitor cards connected through the shared origin."
+        "reason": "R6: monitor cards connected through the shared origin.",
+        "approval_status": "APPROVED",
+        "execution_status": "APPROVED"
       }
     ],
     "what_changed": [
@@ -14566,15 +14578,13 @@
     "output": 0,
     "total": 0
   },
-  "latency_s": 0.5879,
+  "latency_s": 0.6744,
   "graph": {
-    "enabled": true,
+    "enabled": false,
     "available": false,
     "graph_name": "CustomerTransactionGraph",
     "errors": [
-      "Transaction lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Transaction/3514030 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "Customer lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Customer/C12382 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "Card lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Card/C12382-K1 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))"
+      "TigerGraph credentials/configuration missing."
     ]
   }
 }

@@ -16350,15 +16350,13 @@
     "output": 0,
     "total": 0
   },
-  "latency_s": 0.396,
+  "latency_s": 0.3784,
   "graph": {
-    "enabled": true,
+    "enabled": false,
     "available": false,
     "graph_name": "CustomerTransactionGraph",
     "errors": [
-      "Transaction lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Transaction/3476682 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "Customer lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Customer/C07297 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "Card lookup failed: HTTPSConnectionPool(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Max retries exceeded with url: /restpp/graph/CustomerTransactionGraph/vertices/Card/C07297-K2 (Caused by NameResolutionError(\"HTTPSConnection(host='tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io', port=443): Failed to resolve 'tg-941b89bf-aaa9-4d7c-929b-63ace10eea47.tg-2635877100.itgcloud.io' ([Errno 8] nodename nor servname provided, or not known)\"))"
+      "TigerGraph credentials/configuration missing."
     ]
   }
 }
