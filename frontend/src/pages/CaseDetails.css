@@ -1,0 +1,88 @@
+.case-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.case-details-header h1 {
+  margin: 4px 0 0;
+}
+
+.case-details-header button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.case-details-header button:disabled { opacity: 0.6; }
+
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #424242;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.summary-grid span {
+  display: block;
+  font-size: 0.72rem;
+  color: #757575;
+  text-transform: uppercase;
+}
+
+.finding-item {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+.finding-item:last-child { border-bottom: none; }
+
+.finding-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.finding-status {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eee;
+}
+.finding-confirmed { background: #c8e6c9; }
+.finding-unconfirmed { background: #fff9c4; }
+.finding-dismissed { background: #eeeeee; color: #9e9e9e; }
+
+.finding-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.72rem;
+  color: #757575;
+}
+
+.explanation-box {
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.muted { color: #9e9e9e; font-size: 0.85rem; }

@@ -1,0 +1,32 @@
+.investigation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 360px;
+}
+
+.investigation-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  color: #616161;
+  gap: 4px;
+}
+
+.investigation-form input, .investigation-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.investigation-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #1976d2;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.investigation-form button:disabled { opacity: 0.6; }
